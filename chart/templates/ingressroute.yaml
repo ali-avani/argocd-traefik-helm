@@ -1,0 +1,23 @@
+{{- $host := .Values.host | required ".Values.host is required" -}}
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-server
+  namespace: {{ .Release.Namespace }}
+spec:
+  routes:
+    - kind: Rule
+      match: Host(`{{ $host }}`)
+      priority: 10
+      services:
+        - name: argocd-server
+          port: 80
+    - kind: Rule
+      match: Host(`{{ $host }}`) && Header(`Content-Type`, `application/grpc`)
+      priority: 11
+      services:
+        - name: argocd-server
+          port: 80
+          scheme: h2c
+  tls:
+    certResolver: le
