@@ -85,7 +85,7 @@ Login with:
 ### Login via CLI
 
 ```bash
-argocd login test.example.com --username admin --password <password> --insecure
+argocd login test.example.com --username admin
 ```
 
 Replace `<password>` with the one from step 4.
