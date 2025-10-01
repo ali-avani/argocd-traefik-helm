@@ -35,6 +35,7 @@ Traefik will expose Argo CD on this hostname.
 ## 3) Install / upgrade Argo CD with Helm
 
 ```bash
+helm dependency build chart
 helm upgrade --install argocd chart --create-namespace -n argocd --values values.yaml
 ```
 
