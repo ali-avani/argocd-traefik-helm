@@ -15,10 +15,6 @@ It handles bootstrapping Argo CD, retrieving the initial admin password, and sec
 
 ## 1) Clone the repository
 
-```bash
-git clone <YOUR_REPO_URL>.git && cd <YOUR_REPO_NAME>
-```
-
 ## 2) Create and edit `values.yaml`
 
 ```bash
